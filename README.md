@@ -13,8 +13,18 @@ https://docs.mongodb.com/compass/master/install/
 
 4. Create a database called `electric-cars`
 
+5. Clone the repository to your computer, running the following command in your terminal:
+`git clone https://github.com/4tanya/nodejs-bootcamp-exam-24_06_2021.git`
 
-## Application consists of two microservices: client and server parts.
+
+## Application consists of two microservices: *server* and *client* parts.
+
+Directory `final-exam-may-june-2021-tatyana-korzun` contains `./server/` and `./client/` directories, which contains code for a **server** and **client** microservices appropriately.
+
+Directory `media` contains a **presentation** and **database drawing schema**.
+
+
+## To run the application locally, go through the following steps
 
 1. Run seed script for the database, just once, using the following command:
 
