@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import SaveFormService from "./SaveFormService";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -16,19 +17,25 @@ function SaveFormPage() {
   const { token } = useAuth();
   const service = new SaveFormService();
   const [engines, setEngines] = useState([]);
+  const [engineSelected, setEngineSelected] = useState(null);
 
-  const { register, control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm();
 
   const init = async () => {
     const { data } = await service.getEngines(token);
+    setEngineSelected(data[0]?._id);
     setEngines(data);
+  };
+
+  const handleChangeEngine = event => {
+    setEngineSelected(event.target.value);
   };
 
   const onSubmit = async ({
     brand,
     model,
     imageRef,
-    engineId = engines[0]?._id,
+    engineId = engineSelected,
   }) => {
     await service.saveCar({ brand, model, imageRef, engineId }, token);
     history.push("/home");
@@ -38,7 +45,7 @@ function SaveFormPage() {
     init();
   }, []);
 
-  return (
+  return engines.length && (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
         <Controller
@@ -63,22 +70,23 @@ function SaveFormPage() {
         />
 
         <Controller
-          name="imageRef"
+          name="engineId"
           control={control}
           render={({ field }) => (
             <FormControl className={classes.field}>
-              <InputLabel htmlFor="charging_level">Charging level</InputLabel>
+              <InputLabel htmlFor="engineId">Charging level</InputLabel>
               <Select
-                value={engines[0]?._id}
+                {...field}
+                value={engineSelected}
+                onChange={handleChangeEngine}
                 inputProps={{
-                  name: "charging_level",
-                  id: "charging_level",
+                  id: "engineId",
                 }}
               >
                 {engines.map((item) => (
-                  <option key={item._id} value={item._id}>
+                  <MenuItem key={item._id} value={item._id}>
                     {item.charging_level}
-                  </option>
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
