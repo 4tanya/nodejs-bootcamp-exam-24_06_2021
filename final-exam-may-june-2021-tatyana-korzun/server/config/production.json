@@ -1,0 +1,16 @@
+{
+    "app": {
+        "mongo": {
+            "host": "127.0.0.1",
+            "port": 27017,
+            "database": "electric-cars"
+        },
+        "redis": {
+            "host": "127.0.0.1",
+            "port": 6379
+        },
+        "express": {
+            "port": 8080
+        }
+    }
+}
