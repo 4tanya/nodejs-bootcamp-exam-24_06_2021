@@ -1,6 +1,6 @@
-# node-js-exam-may-june-2021
+# nodejs-bootcamp-exam-24_06_2021
 
-Pre-conditions:
+## Pre-conditions:
 
 1. Install mongodb 
 https://www.mongodb.com/try/download/enterprise
@@ -14,35 +14,35 @@ https://docs.mongodb.com/compass/master/install/
 4. Create a database called `electric-cars`
 
 
-Application consists of two microservices: client and server parts.
+## Application consists of two microservices: client and server parts.
 
-1. Run seed scripts for the database, just once.
+1. Run seed script for the database, just once, using the following command:
 
-`npm run seed-db`
+        npm run seed-db
 
 2. Run the backend dev server.
 
-2.1 Go to the ./server/ directory.
+    2.1. Go to the `./server/` directory.
 
-2.2 Copy file .env.dist to .env and set up actual settings.
+    2.2. Copy file `.env.dist` to `.env` and set up actual settings.
 
-2.3 Run the following npm commands:
+    2.3. Run the following npm commands:
 
-`npm install`
+        npm install
 
-`npm run dev`
+        npm run dev
 
 3. Run the client dev server.
 
-3.1 Go to the ./client/ directory.
+    3.1. Go to the `./client/` directory.
 
-3.2 Run the following npm commands:
+    3.2. Run the following npm commands:
 
-`npm install`
+        npm install
 
-`npm start`
+        npm start
 
-Client application dev server url - http://localhost:3000/ - will be opened automatically in the default browser.
+    Client application dev server url - http://localhost:3000/ - will be opened automatically in the default browser.
 
 
-Make sure that both dev servers are running, go to the http://localhost:3000/ and enjoy the application!
+**Make sure that both dev servers are running, go to the http://localhost:3000/ and enjoy the application!**
